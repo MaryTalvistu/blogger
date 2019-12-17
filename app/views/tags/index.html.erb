@@ -1,13 +1,24 @@
-<h1>All Tags</h1>
+<% provide(:title, "All Tags") %> 
 
-<ul id ="tags">
-	<% @tags.each do |tag| %>
-	<li>
-		<%= link_to tag.name, tag_path(tag) %>
-		<%= link_to "delete", tag_path(tag), method: :delete, data: {confirm: "Really delete the article?"} %>
-	</li>
-	
-	<% end %>
-</ul>
+<div class="container">
+  <div class="col-xs-12">
+    <h1 class="header-text">All Tags</h1>
+  </div>
 
-<%= link_to "<< Back", articles_path%>
+  <div class="row">
+    <div class="table-responsive col-md-12">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Tag Name</th>
+            <th>Article Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @tags %>
+		</tbody>		
+	  </table>
+	  <%= link_to "<< Back", articles_path%>
+    </div>
+  </div>
+</div>

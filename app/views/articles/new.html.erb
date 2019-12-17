@@ -1,2 +1,11 @@
-<h1>Create a New Article</h1>
-<%= render partial: 'form' %>
+<% provide(:title, "Create Post") %> 
+
+<div class="container">
+  <h1 class="header-text">Create Post</h1>
+
+  <div class="row ">
+    <div class="col-lg-6 mx-auto text-center">
+      <%= render partial: 'form' %>
+    </div>
+  </div>
+</div>

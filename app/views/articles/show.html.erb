@@ -1,14 +1,26 @@
-<h1><%= @article.title %></h1>
-<p>
-    Tags:
-    <% @article.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag) %>
-    <% end %>
-</p><br />
-<p><%= @article.body %></p> <br />
-<%= render partial: 'comments/form' %>
-<%= link_to "<< Back", articles_path %>
-<%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
-<%= link_to "Edit", edit_article_path(@article) %>
-<h3>Comments (<%= @article.comments.size %>)</h3>
-<%= render partial: 'articles/comment', collection: @article.comments %>
+<% provide(:title, @article.title) %> 
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1 class="header-text">"<%= @article.title %>"</h1>
+      <h4>Created on <%= @article.created_at.strftime("%b %d %Y")%></h4>
+      <h2 id="article-body"><%= @article.body %></h2>
+      <br>
+      <h4 id="tags">
+        Tags:
+        <% @article.tags.each do |tag| %>
+          <%= link_to tag.name, tag_path(tag) %>,
+        <% end %>
+      </h4>
+    </div>
+    <div class="col-md-12 mx-auto">
+      <div class="col-md-6 mx-auto">
+        <%= render partial: 'comments/form' %>
+      </div>
+      <h4>Comments (<%= @article.comments.size %>)</h4>
+      <hr>
+      <%= render @article.comments %>
+    </div>
+  </div>
+</div>
