@@ -23,13 +23,13 @@ Framework - Ruby on Rails
 
 Make sure you have Rails and Git installed on your machine
 
-git clone the repo to your local machine git clone https://github.com/MaryTalvistu/blogger
+1. git clone the repo to your local machine `git clone https://github.com/MaryTalvistu/blogger`
 
-Run bundle install to install gems
+2. Run `bundle install` to install gems
 
-Run rake db:migrate to migrate the database
+3. Run `rake db:migrate` to migrate the database
 
-On root path you can run rails s to begin server
+4. On root path you can run `rails s` to begin server
 
-Open browser to localhost:3000 to view application
+5. Open browser to `localhost:3000` to view application
 
