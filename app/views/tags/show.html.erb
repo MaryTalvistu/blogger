@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="col-xs-12">
-    <h1 class="header-text">Articles Tagged with "<%= @tag.name %>"</h1>
+    <h1 class="header-text">Articles Tagged with "<%= @tag.name %>"</h1><br />
   </div>
 
   <div class="row">
@@ -10,12 +10,14 @@
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th>Tag Name</th>
-            <th>Article Count</th>
+            <th>Article Name</th>
+            <th>Created</th>
+            <th>Comments</th>
+            <th>Tags</th>
           </tr>
         </thead>
         <tbody>
-          <%= render @tag_articles %>
+          <%= render @tag.articles %>
         </tbody>
       </table>
     </div>

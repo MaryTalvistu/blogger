@@ -1,8 +1,15 @@
-class Article < ApplicationRecord
+class Article < ActiveRecord::Base
     has_many :comments, dependent: :destroy
     has_many :taggings, dependent: :destroy
     has_many :tags, through: :taggings
+    validates :title, presence: {message: "is required"}, length: {maximum: 230}
+	validates :body, presence: {message: "is required"}, length: {maximum: 1600}
+	validates :tag_list, length: {maximum: 230}
+    has_one_attached :image
 
+
+
+    
     def tag_list
         tags.join(", ")
     end
@@ -12,4 +19,6 @@ class Article < ApplicationRecord
         new_or_found_tags = tag_names.collect { |name| Tag.find_or_create_by(name: name) }
         self.tags = new_or_found_tags
     end
+
+
 end
