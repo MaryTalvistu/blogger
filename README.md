@@ -9,6 +9,7 @@ A simple blog system to learn the basics of Ruby on Rails including:
 - RESTful design
 - Adding gems for extra features
 
+Check it out here: `https://desolate-lowlands-67314.herokuapp.com/`
 
 # Application / Version Information
 
@@ -17,6 +18,10 @@ Ruby version - 2.6.3p62
 Rails version - 6.0.1
 
 Framework - Ruby on Rails
+
+Database - Postgres
+
+Hosted on Heroku
 
 
 # Deployment Instructions
@@ -33,3 +38,10 @@ Make sure you have Rails and Git installed on your machine
 
 5. Open browser to `localhost:3000` to view application
 
+# Testing
+
+Once you have the repo on your local machine
+
+1. Run `rake db:migrate RAILS_ENV=test` to migrate the testing enviroment database
+
+2. Run `rake test` to verify everything is ok
