@@ -9,7 +9,7 @@ A simple blog system to learn the basics of Ruby on Rails including:
 - RESTful design
 - Adding gems for extra features
 
-Check it out here: `https://desolate-lowlands-67314.herokuapp.com/`
+Check it out [HERE] (https://desolate-lowlands-67314.herokuapp.com/)
 
 # Application / Version Information
 
