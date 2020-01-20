@@ -19,10 +19,10 @@
     </div>
      <div class="form-group">
         <%= f.label :image, "Attach an Image" %><br />
-        <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: "btn btn-primary"%>
+        <%= f.file_field :image, class: "btn btn-primary"%>
     </div>
     <div class="form-group">
         <a href="/articles" class="btn btn-lg btn-danger" id="cancel-button">Cancel</a>
         <%= f.submit "Create", class: "btn btn-lg btn-success", id: "submit-button" %>
   </div>
-<% end %>
+<% end %> 

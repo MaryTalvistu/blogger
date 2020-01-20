@@ -46,4 +46,15 @@ class ArticlesController < ApplicationController
         redirect_to articles_path 
     end
 
+    private
+
+        def set_article
+            @article = Article.find(params[:id])
+        end
+
+
+        def article_params
+        params.require(:article).permit(:title, :image, :body)
+        end
+
  end
