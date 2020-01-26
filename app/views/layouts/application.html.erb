@@ -12,36 +12,44 @@
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'  %>
+
+
 </head>
 <body>
 <div class="container">
   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
     <a class="navbar-brand" href="/">Blogger</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav navbar-right ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="/">All Posts</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item"><% if logged_in? %>
           <a class="nav-link" href="/articles/new">Create Post</a>
-        </li>
+        <% end %></li>
         <li class="nav-item">
           <a class="nav-link" href="/tags">Search by Tags</a>
         </li>
+      <li class="nav-item"><% if logged_in? %>    
+      <a class="nav-link" href="/logout", method: :get>Logout</a>     
+        <% else %>
+        <li><a class="nav-link" href="/login", method: :get>Login</a></li>
+         <li><a class="nav-link" href="/authors/new", method: :get>Sign Up</a></li>
+        <% end %>
+      </li>
       </ul>
     </div>
+   
   </nav>
 
   <p class="flash">
     <%= flash.notice %>
   </p>
-
+  <div id="container">
+    <div id="content">
   <%= yield %>
-
+  <hr>
   <nav class="navbar navbar-dark bg-primary" id="footer">
     <div class="container">
       <div class="text-left">

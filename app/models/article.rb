@@ -2,15 +2,13 @@ class Article < ActiveRecord::Base
     has_many :comments, dependent: :destroy
     has_many :taggings, dependent: :destroy
     has_many :tags, through: :taggings
+    belongs_to :author
     validates :title, presence: {message: "is required"}, length: {maximum: 230}
 	validates :body, presence: {message: "is required"}, length: {maximum: 1600}
 	validates :tag_list, length: {maximum: 230}
     has_attached_file :image, styles: { large: "600x600>", medium: "300x300>", thumb: "150x150#" }
     validates_attachment_content_type :image, content_type:["image/jpg", "image/jpeg", "image/png", "image/gif"]
     
-
-
-
     
     def tag_list
         self.tags.collect do |tag|
@@ -24,6 +22,8 @@ class Article < ActiveRecord::Base
         self.tags = new_or_found_tags
     end
 
-
+    def increment_view_count
+		self.update view_count: view_count + 1
+	end
 
 end

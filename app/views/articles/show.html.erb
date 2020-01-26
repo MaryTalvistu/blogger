@@ -3,18 +3,28 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <h1 class="header-text">"<%= @article.title %>"</h1>
-      <p>Created on <%= @article.created_at.strftime("%b %d %Y")%></p>
-      <p><%= image_tag @article.image.url(:large), class: "post-image" if @article.image.exists? %></p>
-      <h2 id="article-body"><%= @article.body %></h2>
+      <h1 class="header-text"><%= @article.title %></h1>
+      <% if @article.author != nil %>
+        <h3>By: <%= @article.author.username %></h3>
+      <% end %>
+      <p>Created: <%= @article.created_at.strftime("%b %d %Y") %> [views: <%= @article.view_count %> <%= 'time'.pluralize(@article.view_count)  %>]</p>
       <br>
-      <h4 id="tags">
-        Tags:
-        <% @article.tags.each.chop do |tag| %>
-          <%= link_to tag.name, tag_path(tag) %>,
-        <% end %>
-      </h4>
+      <p><%= image_tag @article.image.url(:large), class: "post-image" if @article.image.exists? %></p>
+      <p id="article-body"><%= @article.body %></p>
+        <h4 id="tags">
+          Tags:
+          <% @article.tags.each do |tag| %>
+            <%= link_to tag.name, tag_path(tag) %>
+          <% end %>
+        </h4>
+        <br>
+          <% if logged_in? && (@article.author_id == current_user.id) %>
+        <%= link_to "Edit", edit_article_path(@article) %>
+        &nbsp;
+        <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
+      <% end %>
     </div>
+
     <div class="col-md-12 mx-auto">
       <div class="col-md-6 mx-auto">
         <%= render partial: 'comments/form' %>
@@ -24,4 +34,5 @@
       <%= render @article.comments %>
     </div>
   </div>
+  <%= link_to "<< Back", articles_path %>
 </div>

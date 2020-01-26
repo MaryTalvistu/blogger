@@ -1,0 +1,11 @@
+<% provide(:title, "Editing Author") %> 
+<div class="container">
+  <h1 class="header-text" style="margin-bottom: 25px; text-align: center">Editing Author</h1>
+  <div class="col-md-4 mx-auto text-center">
+
+<%= render 'form', author: @author %>
+
+</div>
+</div>
+
+<%= link_to '<< Back', authors_path %>

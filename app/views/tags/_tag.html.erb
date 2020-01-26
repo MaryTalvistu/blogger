@@ -1,4 +1,8 @@
 <tr onclick="document.location='<%= tag_path(tag.id)%>'" style="cursor: pointer;">
-  <td><p class="table-name"><%= tag.name %></p></td>
+  <td><p class="table-name"> 
+  <%= tag.name %></p></td>
   <td><p><%= tag.articles.count %></p></td>
+  <td><% if logged_in? && tag.articles.count ==0 %>
+  <%= link_to "Delete", tag_path(tag), method: :delete, data: {confirm: "Really delete the tag?"} %>
+<% end %></td>
 </tr>

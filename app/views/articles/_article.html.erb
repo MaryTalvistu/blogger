@@ -1,8 +1,11 @@
 <tr>
   <td><p class="table-name"><%= link_to article.title, article_path(article.id), length: 130 %></p></td>
+  <td><p>	<% if article.author != nil %>
+  <span>by <%= article.author.username %></span>
+<% end %></p></td>
   <td><p><%= article.created_at.strftime('%b %d, %Y') %></p></td>
   <td><p><%= article.comments.count %></p></td>
   <td><p><%= article.tag_list %></p></td>
-  <td><p><%= link_to "Edit", edit_article_path(article.id) %></p></td>
-  <td><p><%= link_to "Delete", article_path(article.id), method: :delete, data: {confirm: "Really delete the article?"} %></p></td>
+  <td><p><% if logged_in? && (article.author.username == current_user.username) %><%= link_to "Edit", edit_article_path(article.id) %><% end %></p></td>
+  <td><p><% if logged_in? && (article.author.username == current_user.username) %><%= link_to "Delete", article_path(article.id), method: :delete, data: {confirm: "Really delete the article?"} %><% end %></p></td>
 </tr>

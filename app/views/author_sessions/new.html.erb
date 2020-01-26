@@ -1,0 +1,32 @@
+<% flash.each do |type, msg| %>
+    <div class="alert alert-danger">
+      <%= msg %>
+    </div>
+  <% end %>
+<% provide(:title, "Login") %> 
+<div class="container">
+  <h1 class="header-text" style="margin-bottom: 25px; text-align: center;">Login</h1>
+    <div class="col-md-4 mx-auto text-center">
+        <%= form_tag author_sessions_path, method: :post do %>
+         
+   <div class="form-area">    
+   <br>
+        <div class="form group">
+            <%= label_tag :email, "Email:" %>
+            <%= text_field_tag :email%>
+        </div>
+
+        <div class="form group">
+            <%= label_tag :password, "Password:" %>
+            <%= password_field_tag :password%>
+        </div>
+    <br>
+    <%= submit_tag 'Login', class: "btn btn-primary" %>
+    <% end %>
+    </div>
+</div>
+    <%= link_to '<< Back', articles_path %>
+
+
+
+

@@ -1,0 +1,13 @@
+
+<% provide(:title, "Sign Up") %> 
+<div class="container">
+  <h1 class="header-text" style="margin-bottom: 25px; text-align: center">Sign Up</h1>
+  <div class="col-md-4 mx-auto text-center">
+    <div id="signup-form">
+        <%= render 'form', author: @author %>
+    </div> 
+  </div>
+</div>
+<%= link_to '<< Back', authors_path %>
+
+
