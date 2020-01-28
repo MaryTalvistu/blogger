@@ -9,11 +9,11 @@ A simple blog system to learn the basics of Ruby on Rails including:
 - RESTful design
 - Adding gems for extra features
 
-Check it out [HERE](https://desolate-lowlands-67314.herokuapp.com/)
+Check it out [HERE](https://new-blog-test.herokuapp.com/)
 
 # Application / Version Information
 
-Ruby version - 2.6.3p62
+Ruby version - 2.6.5
 
 Rails version - 6.0.1
 
